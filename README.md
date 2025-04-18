@@ -11,6 +11,8 @@ Este proyecto permite interactuar con la API de Layer2 Financial usando Node.js,
 ## ⚙️ Instalación
 
 ```bash
-git clone https://github.com/winos/railio-client.git
-cd railio-client 
-npm install
+    git clone https://github.com/winos/railio-client.git
+    cd railio-client 
+    npm install
+    node rail.js
+```
