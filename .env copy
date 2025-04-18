@@ -1,0 +1,6 @@
+CLIENT_ID=
+CLIENT_SECRET=
+TOKEN_URL=https://auth.layer2financial.com/oauth2/ausbdqlx69rH6OjWd696/v1/token
+
+WITHDRAWAL_URL=https://sandbox.layer2financial.com/api/v1/withdrawals
+ACCOUNTS_URL=https://sandbox.layer2financial.com/api/v1/accounts/deposits
