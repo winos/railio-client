@@ -29,6 +29,56 @@ const getAccessToken = async (scope = 'accounts:read') => {
   }
 };
 
+
+const APPLICATION_URL = process.env.APPLICATION_URL;
+
+// 🧾 Crear una nueva aplicación
+const createApplication = async () => {
+  const token = await getAccessToken('applications:write');
+
+  const payload = {
+    application_type: 'INDIVIDUAL',
+    terms_and_conditions_accepted: true,
+    customer_id: 'customer_123456',
+    account: {
+      account_reference: 'ref-123',
+      currency: 'USD',
+      product_type: 'DEPOSIT'
+    },
+    individual: {
+      first_name: 'Juan',
+      last_name: 'Pérez',
+      date_of_birth: '1990-05-15',
+      address: {
+        line1: '123 Calle Principal',
+        city: 'Ciudad Ejemplo',
+        state: 'Antioquia',
+        country: 'CO',
+        postal_code: '050001'
+      },
+      email: 'juan.perez@example.com',
+      phone: '+573001112233'
+    }
+  };
+
+  try {
+    const response = await axios.post(APPLICATION_URL, payload, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'x-l2f-request-id': uuidv4(),
+        'x-l2f-idempotency-id': uuidv4()
+      }
+    });
+
+    console.log('✅ Aplicación creada:', response.data);
+  } catch (error) {
+    console.error('❌ Error creando aplicación:', error.response?.data || error.message);
+  }
+};
+
+
+
 const getAccounts = async () => {
   const token = await getAccessToken();
 
@@ -54,3 +104,6 @@ const getAccounts = async () => {
 };
 
 getAccounts();
+
+createApplication();
+
