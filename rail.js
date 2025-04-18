@@ -24,7 +24,7 @@ const getAccessToken = async (scope = 'accounts:read') => {
     );
     return response.data.access_token;
   } catch (error) {
-    console.error('❌ Error obteniendo token:', error.response?.data || error.message);
+    console.error('Error obteniendo token:', error.response?.data || error.message);
     throw error;
   }
 };
@@ -71,9 +71,9 @@ const createApplication = async () => {
       }
     });
 
-    console.log('✅ Aplicación creada:', response.data);
+    console.log('Aplicación creada:', response.data);
   } catch (error) {
-    console.error('❌ Error creando aplicación:', error.response?.data || error.message);
+    console.error('Error creando aplicación:', error.response?.data || error.message);
   }
 };
 
@@ -97,9 +97,9 @@ const getAccounts = async () => {
       }
     });
 
-    console.log('📄 Lista de cuentas:', response.data);
+    console.log('Lista de cuentas:', response.data);
   } catch (error) {
-    console.error('❌ Error obteniendo cuentas:', error.response?.data || error.message);
+    console.error('Error obteniendo cuentas:', error.response?.data || error.message);
   }
 };
 
