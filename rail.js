@@ -32,7 +32,6 @@ const getAccessToken = async (scope = 'accounts:read') => {
 
 const APPLICATION_URL = process.env.APPLICATION_URL;
 
-// 🧾 Crear una nueva aplicación
 const createApplication = async () => {
   const token = await getAccessToken('applications:write');
 
